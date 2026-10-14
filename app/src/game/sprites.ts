@@ -59,10 +59,10 @@ export interface PetDrawOpts {
   filter?: string;
 }
 
-const FRAME_MS = 167;
-const CELL = 96;
+export const FRAME_MS = 260;
+export const CELL = 96;
 
-function frameIndex(t: number) {
+export function frameIndex(t: number) {
   return Math.floor(t / FRAME_MS) % 4;
 }
 
@@ -84,7 +84,7 @@ function drawPlaceholder(
   x: number, y: number, scale: number, t: number, squash: number, sleeping: boolean,
 ) {
   const c = SPECIES[species].colors;
-  const bob = Math.sin(t / 300) * 3 * scale * 0.12;
+  const bob = Math.sin(t / 520) * 3 * scale * 0.12;
   const blink = (Math.floor(t / 2400) % 4 === 3) ? 0.15 : 1;
   const big = form === 'sprout';
   const w = (big ? 62 : 52) * scale * (1 + squash * 0.25);
@@ -172,7 +172,7 @@ export function drawPet(
 ) {
   const bodyImg = assets.strips.get(`${species}_${form}_idle`);
   const frame = frameIndex(o.t);
-  const squash = (o.squash ?? 0) + Math.sin(o.t / 300) * 0.02;
+  const squash = (o.squash ?? 0) + Math.sin(o.t / 520) * 0.02;
   const hopY = o.hop ? -Math.sin(o.hop * Math.PI) * 55 * o.scale : 0;
   const cheerY = o.cheer ? -Math.abs(Math.sin(o.cheer * Math.PI * 2)) * 30 * o.scale : 0;
   const y = o.y + hopY + cheerY;

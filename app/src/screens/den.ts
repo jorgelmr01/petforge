@@ -381,7 +381,7 @@ export function make(): Screen {
     }
 
     drawPet(ctx, g().assets, s.species, s.form, traitIds(), {
-      x: a.x, y: a.y, scale: a.scale * 1.35, t,
+      x: a.x, y: a.y, scale: a.scale * 0.95, t,
       hop, squash: ix.squash + chompSquash, sleeping: s.sleeping,
       cheer: ix.cheer > 0 ? 1 - ix.cheer : 0,
     });

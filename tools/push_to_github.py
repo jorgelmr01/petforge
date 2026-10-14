@@ -151,15 +151,18 @@ def main():
     s, _ = api('PATCH', f'/repos/{OWNER}/{REPO}', {'default_branch': 'main'})
     print('default_branch -> main:', s, flush=True)
 
-    # 5. enable Pages
+    # 5. enable Pages (PUT returns 204 empty on success — tolerate non-JSON)
     s, pg = api('POST', f'/repos/{OWNER}/{REPO}/pages',
                 {'source': {'branch': 'gh-pages', 'path': '/'}})
-    if s == 409:  # already enabled — update source
-        s, pg = api('PUT', f'/repos/{OWNER}/{REPO}/pages',
-                    {'source': {'branch': 'gh-pages', 'path': '/'}})
-    print('pages enable:', s, flush=True)
+    if s == 409:
+        try:
+            api('PUT', f'/repos/{OWNER}/{REPO}/pages',
+                {'source': {'branch': 'gh-pages', 'path': '/'}})
+        except Exception as e:
+            print('pages PUT note:', str(e)[:120], flush=True)
     s, pg = api('GET', f'/repos/{OWNER}/{REPO}/pages')
-    html_url = pg.get('html_url', '')
+    print('pages enable:', s, flush=True)
+    html_url = pg.get('html_url', '') if isinstance(pg, dict) else ''
     print('pages url:', html_url, flush=True)
 
     # 6. homepage + topics

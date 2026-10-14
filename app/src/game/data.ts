@@ -130,16 +130,17 @@ export interface Trial {
   foeSpecies: SpeciesId;
   foeForm: Form;
   foePower: number;
+  recPower: number;
   reward: number;
   desc: string;
 }
 
 export const TRIALS: Trial[] = [
-  { id: 'moss', name: 'Moss Trial', foeName: 'Mossjaw', foeSpecies: 'tidepup', foeForm: 'sprout', foePower: 18, reward: 40, desc: 'A grumpy garden guardian.' },
-  { id: 'ember', name: 'Ember Trial', foeName: 'Cinder Maw', foeSpecies: 'embercub', foeForm: 'sprout', foePower: 32, reward: 70, desc: 'All bark, mostly bite.' },
-  { id: 'tide', name: 'Tide Trial', foeName: 'Abyssal Fin', foeSpecies: 'tidepup', foeForm: 'prime', foePower: 50, reward: 110, desc: 'It has seen the deep. It is unimpressed.' },
-  { id: 'storm', name: 'Storm Trial', foeName: 'Tempest Beak', foeSpecies: 'galekit', foeForm: 'prime', foePower: 72, reward: 160, desc: 'Faster than your excuses.' },
-  { id: 'void', name: 'Void Trial', foeName: 'Null Eater', foeSpecies: 'embercub', foeForm: 'prime', foePower: 102, reward: 250, desc: 'The final shadow. Bring everything.' },
+  { id: 'moss', name: 'Moss Trial', foeName: 'Mossjaw', foeSpecies: 'tidepup', foeForm: 'sprout', foePower: 18, recPower: 15, reward: 40, desc: 'A grumpy garden guardian.' },
+  { id: 'ember', name: 'Ember Trial', foeName: 'Cinder Maw', foeSpecies: 'embercub', foeForm: 'sprout', foePower: 32, recPower: 26, reward: 70, desc: 'All bark, mostly bite.' },
+  { id: 'tide', name: 'Tide Trial', foeName: 'Abyssal Fin', foeSpecies: 'tidepup', foeForm: 'prime', foePower: 50, recPower: 42, reward: 110, desc: 'It has seen the deep. It is unimpressed.' },
+  { id: 'storm', name: 'Storm Trial', foeName: 'Tempest Beak', foeSpecies: 'galekit', foeForm: 'prime', foePower: 72, recPower: 62, reward: 160, desc: 'Faster than your excuses.' },
+  { id: 'void', name: 'Void Trial', foeName: 'Null Eater', foeSpecies: 'embercub', foeForm: 'prime', foePower: 102, recPower: 95, reward: 250, desc: 'The final shadow. Bring everything.' },
 ];
 
 export const TRIAL_ENERGY_COST = 20;

@@ -46,7 +46,8 @@ export function make(): Screen {
     headEl.innerHTML = `
       <div style="display:flex;align-items:center;gap:8px">
         <div style="flex:1"><h1>⚒️ Trait Forge</h1>
-        <div class="sub">Buy traits. Fuse them. Become legend.</div></div>
+        <div class="sub">Buy traits. Fuse them. Become legend.</div>
+        <div class="sub" style="margin-top:4px">💎 <b>Earn shards:</b> feed · play · clean your pet, win trials, daily check-in.</div></div>
         <div class="chip" id="shard-chip">💎 ${s.shards}</div>
         <div class="chip">⚡${powerOf(s)}</div>
       </div>`;
